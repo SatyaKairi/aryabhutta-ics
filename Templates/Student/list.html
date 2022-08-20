@@ -1,0 +1,32 @@
+{% extends '../base.html' %}
+
+
+{% block container %}
+<h1>Student List </h1>
+
+<div class="col-4">
+    <form>
+        <div class="input-group  mb-3">
+            <input type="text" name="q" class="form-control" placeholder="Search project"
+                aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+        </div>
+    </form>
+</div>
+
+<ul>
+    {% for object in object_list %}
+    <li>
+        <h3 class="card-header"><a href="{{object.get_detail_url }}">{{object.name}} </a></h3>
+        <p>
+            dob: ${{object.dob}}, standard: {{object.standard}}%
+        </p>
+        <a href="{{object.get_course_url }}">Add Course </a>
+    </li>
+
+    {% endfor %}
+</ul>
+
+
+
+{% endblock %}

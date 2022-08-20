@@ -1,0 +1,16 @@
+{% extends '../base.html' %}
+
+
+{% block container %}
+
+<div class="col-6 mx-auto ">
+    <h1>{{msg}}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="btn btn-primary" value="Save" type="submit">
+
+
+    </form>
+</div>
+{% endblock %}
