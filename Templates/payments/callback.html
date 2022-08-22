@@ -3,6 +3,7 @@
     <title>Callback</title>
 </head>
 <body>
+    Course ID : {{COURSE.id}}
     <h2>Callback Messsage: </h2>                    <br>
     <h3> Checksum Verification: {{ message }} </h3> <br>
     MID: {{ MID }}                                  <br>
@@ -20,5 +21,7 @@
     BIN_NAME: {{ BIN_NAME }}                        <br>
     PAYMENTMODE: {{ PAYMENTMODE }}                  <br>
     CHECKSUMHASH: {{ CHECKSUMHASH }}
+
+    <a class="btn btn-primary" href="{% url 'course:detail_view' COURSE.id %}">Back to detail View</a>
 </body>
 </html>

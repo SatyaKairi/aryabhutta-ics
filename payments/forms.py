@@ -2,14 +2,11 @@ from dataclasses import fields
 from django import forms
 from .models import Course
 
-class CourseCreateForm(forms.ModelForm):
+class TransactionCreateForm(forms.ModelForm):
     class Meta:
         model = Course
-        fields = ['name','eligibility','duration','start_date','first_installment','second_installment','third_installment']
+        fields = ['made_by','amount','course','installment']
        
-        
-        
-     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         

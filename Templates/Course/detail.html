@@ -3,29 +3,51 @@
 
 {% block container %}
 
+<div class="row">
+    <div class="card border-success col-sm-12 mx-auto col-lg-7 ">
+        <div class="card-header bg-success text-white border-success">
+            <h3 >{{ object.name}}</h3>
+        </div>
+        <div class="card-body bg-light text-primary ">
+            <img src={{object.image.url}} class="img-fluid" alt="Responsive image">
+            <h4 class="card-title">
+                {{object.description}}
+            </h4>
+            
+            <hr>
+            
+        </div>
+    </div>
+    
+    <div class="card border-success  col-sm-12 col-lg-4">
+        <div class="card-header  border-success">
+            <h3>Details</h3>
+        </div>
+        <div class="card-body bg-light text-primary ">
+              
+                <h6>Duration: {{ object.duration }} days </h6>
+                <h6>Total fee: {{ total_fee }} rupees only</h6>
+                <hr>
 
-<div class="card border-success col-6 mx-auto ">
-    <div class="card-header bg-success text-white border-success">
-        <h3>{{ object.name}}</h3>
-    </div>
-    <div class="card-body bg-light text-primary ">
+                <h5>Installments</h5>
+                <div class="container">
+                    {% include "Course/pertial/installment.html" with installment="first_installment" installment_header="First Installment" installment_amount=object.first_installment status=installments.first_installment paid_date=paid_on.first_installment %}
+                    {% include "Course/pertial/installment.html" with installment="second_installment" installment_header="Second Installment" installment_amount=object.second_installment status=installments.second_installment paid_date=paid_on.second_installment  %}
+                    {% include "Course/pertial/installment.html" with installment="third_installment" installment_header="Third Installment" installment_amount=object.third_installment status=installments.third_installment paid_date=paid_on.third_installment  %}
+                    
+                </div>
+                
+           
+        </div>
         
-        <h4 class="card-title">
-            {{object.description}}
-        </h4>
-        <hr>
-        <p>
-            duration: {{object.duration}},
-        </p>
-    </div>
-    <div class="card-footer text-primary ">
-            <h4>Installment</h4>
-            <div class="course-installments">
-                {{object.first_installment}}
-            </div>
+        <div class="card-footer text-primary ">
+                <h4>Installment</h4>
+                <div class="course-installments">
+                    {{object.first_installment}}
+                </div>
+        </div>
     </div>
 </div>
-
 
 <!-- Button trigger modal -->
 

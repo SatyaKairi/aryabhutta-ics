@@ -2,7 +2,7 @@
 
 
 {% block container %}
-<h1>Course List </h1>
+<h1>Courses </h1>
 
 <div class="col-4">
     <form>
@@ -14,17 +14,22 @@
     </form>
 </div>
 
-<div class="card" style="width: 18rem;">
+
     {% for object in object_list %}
+    <div class="card" style="width: 18rem;">
+        
+        <img class="card-img-top"  src="{{object.image.url}}"/>
+    </div>
     <div class="card-body">
         <h3 class="card-title">{{object.name}} </a></h3>
         <p>
             {{object.description}}
         </p>
-        <a href="{{object.get_detail_url }}" class="btn btn-primary">Know more</a>
-    </div>
 
-    {% endfor %}
+        <a  href="{{object.get_detail_url }}" class="btn btn-primary my-2">Know more</a>
+    </div>
 </div>
+    {% endfor %}
+
 
 {% endblock %}

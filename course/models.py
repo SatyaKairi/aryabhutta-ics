@@ -8,13 +8,13 @@ class CourseManager(models.Manager):
 
 class Course(models.Model):
     name=models.CharField(max_length=100)
-    image = models.ImageField()
+    image = models.ImageField(upload_to = 'course_image/')
     description = models.TextField()
     eligibility=models.CharField(max_length=100)
-    duration=models.DecimalField(max_digits=10, decimal_places=2)
-    first_installment = models.DecimalField(max_digits=10, decimal_places=2)
-    second_installment = models.DecimalField(max_digits=10, decimal_places=2)
-    third_installment = models.DecimalField(max_digits=10, decimal_places=2)
+    duration=models.IntegerField()
+    first_installment = models.IntegerField()
+    second_installment = models.IntegerField()
+    third_installment = models.IntegerField()
     start_date=models.DateTimeField(auto_now=False)
     created_by = models.ForeignKey(User,on_delete=models.SET_NULL, null=True, blank = True)
     created_date = models.DateTimeField(auto_now_add=True)

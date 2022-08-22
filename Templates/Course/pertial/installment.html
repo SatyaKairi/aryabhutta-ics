@@ -1,0 +1,23 @@
+<form method="POST" action="{% url 'pay' %}">
+    {% csrf_token %}
+    
+    <div class="row">
+        <div class="col-10">
+            <input type="hidden" name="course_id"value ="{{ object.id}}"/>
+            <h6>{{installment_header}} - Rs.{{ installment_amount }}  {{status|default_if_none:""}} 
+                {%if paid_date %}
+                on {{paid_date|default_if_none:""}}
+                {% endif %}
+
+            </h6>
+            <input type="hidden" name="installment" value={{installment}} />
+            <input type="hidden" name="amount" value = {{ installment_amount }} />
+        </div>
+        <div class="col-2 mb-2">
+            {%if status is None %}
+                <input class="btn btn-primary" value="Pay" type="submit"/>
+            {% endif %}
+        </div>
+    </div>
+    
+</form>
